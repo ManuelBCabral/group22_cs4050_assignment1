@@ -71,11 +71,18 @@ public class SortShow extends JPanel {
 			Calendar start = Calendar.getInstance();
 			//getting the date and time when the selection sort ends
 			Calendar end = Calendar.getInstance();
-
+			for (int i =0; i<total_number_of_lines-1;i++){
+				for(int j=0 ;j<total_number_of_lines-i-1;j++){
+					if(lines_lengths[j]>lines_lengths[j+1]){
+						swap(j,j+1);
+					}
+				}
+			}
+			paintComponent(this.getGraphics());
 
 			//getting the time it took for the selection sort to execute
 			//subtracting the end time with the start time
-			SortGUI.selectionTime = end.getTime().getTime() - start.getTime().getTime();
+			SortGUI.BubbleTime = end.getTime().getTime() - start.getTime().getTime();
 		}
 		//The selectionSort method
 		public void SelectionSort(){
