@@ -269,6 +269,13 @@ public class SortShow extends JPanel {
 			lines_lengths[index] = tempArray[index];
 	}
 
+	public void shellSort(int first, int end){
+
+	}
+	public void quickSort(int first, int end){
+
+
+	}
 	//////////////////////////////////////////////////////////////////////	
 		
 		//This method resets the window to the scrambled lines display
