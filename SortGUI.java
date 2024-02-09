@@ -75,9 +75,9 @@ public class SortGUI {
 		//making a iterative merge button with a text "Selection" on it
 		JRadioButton imerge = new JRadioButton("Merge Iterative");
 		//making a reset button with a text "Selection" on it
-		JRadioButton qmerge = new JRadioButton("Merge Quick");
+		JRadioButton qsort = new JRadioButton("Merge Quick");
 		//making a reset button for quick sort
-		JRadioButton smerge = new JRadioButton("Merge Shell");
+		JRadioButton ssort = new JRadioButton("Merge Shell");
 		JRadioButton reset = new JRadioButton("Reset");
 		//A label that displays the time it took for the Selection sort took to execute
 		JLabel selection_time_label = new JLabel("Selection Time");
@@ -122,8 +122,8 @@ public class SortGUI {
 			rmerge.setForeground(Color.BLUE);
 			//The iterative merge button text will be the colour blue
 			imerge.setForeground(Color.BLUE);
-			qmerge.setForeground(Color.BLUE);
-			smerge.setForeground(Color.BLUE);
+			qsort.setForeground(Color.BLUE);
+			ssort.setForeground(Color.BLUE);
 			//The scramble button's text will be blue
 			scramble_button.setForeground(Color.BLUE);
 			//setting the font of scramble button
@@ -140,8 +140,8 @@ public class SortGUI {
 			radio_button_selection_Panel.add(rmerge);
 			//Adding the iterative merge button to the radio_button_selection_Panel
 			radio_button_selection_Panel.add(imerge);
-			radio_button_selection_Panel.add(qmerge);
-			radio_button_selection_Panel.add(smerge);
+			radio_button_selection_Panel.add(qsort);
+			radio_button_selection_Panel.add(ssort);
 			//Adding the reset button to the radio_button_selection_Panel
 			radio_button_selection_Panel.add(reset);
 			//giving the radio_button_selection_Panel a border with a title
@@ -249,7 +249,7 @@ public class SortGUI {
 				}
 			});
 
-			qmerge.addActionListener(new ActionListener() {
+			qsort.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					//Sorting the array in the iterative merge sort method
 					sortArea.quickSort();
@@ -261,7 +261,7 @@ public class SortGUI {
 					Set_Available_Chooses(false,false, false, false, false, false, false, true);
 				}
 			});
-			smerge.addActionListener(new ActionListener() {
+			ssort.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					//Sorting the array in the iterative merge sort method
 					sortArea.shellSort();
@@ -298,7 +298,7 @@ public class SortGUI {
 					//iterative merge sort has finished/been clicked
 					Iterative_Merge_Done = true;
 					//setting all booleans false except for reset
-					Set_Available_Chooses(false,false, false, false, false, false, false, false);
+					Set_Available_Chooses(false,false, false, false, false, false, false, true);
 				}
 			});
 
@@ -360,8 +360,8 @@ public class SortGUI {
 			this.Insertion.setEnabled(Insertion_state);
 			this.rmerge.setEnabled(rmerge_state);
 			this.imerge.setEnabled(imerge_state);
-			this.qmerge.setEnabled(quick_state);
-			this.smerge.setEnabled(shell_state);
+			this.qsort.setEnabled(quick_state);
+			this.ssort.setEnabled(shell_state);
 			this.reset.setEnabled(reset_state);
 		}
 	}

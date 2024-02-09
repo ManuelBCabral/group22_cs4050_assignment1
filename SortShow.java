@@ -350,25 +350,74 @@ public class SortShow extends JPanel {
 			lines_lengths[index] = tempArray[index];
 	}
 	//////////////////////////////////////////////////////////////////////
-	public void shellSort(){ //takes an array and n
+	public void shellSort() { //takes an array and n
 		Calendar start = Calendar.getInstance();
 		/*
-		for(int gap = n/2; while the gap is greater than 0, gap /= 2)
-			for(i = gap; while i is less than n. i++)
-				create a temp that copies the array
-
-				int j = 0;
-				for(j = i; j >= gap && array[j- gap] > temp; j -= gap)
-					array[j] = arr[j-gap];
-
-					array[j] = temp;
+		int n = aar.length;
+		for( int gap = n/2; gap > 0; gap /= 2){
+			for(int i - gap; i < n; i += 1){
+				int temp = arr[i];
+				int j;
+				for(j = i; j>= gap && arr[j-gap] > temp; j -= gap)
+					arr[j] = arr[j-gap];
+					arr[j] = temp;
+			}
+		}
 		return 0;
 		 */
+		int n = total_number_of_lines;//256
+		for (int gap = n / 2; gap > 0; gap /= 2) {
+			for (int i = gap; i < n; i += 1) {
+				int temp = lines_lengths[i];
+				int j;
+				for (j = i; j >= gap && lines_lengths[j - gap] > temp; j -= gap)
+					lines_lengths[j] = lines_lengths[j - gap];
+				lines_lengths[j] = temp;
 
+			}
+		}
+		paintComponent(this.getGraphics());
+		Calendar end = Calendar.getInstance();
+		SortGUI.shellTime = end.getTime().getTime() - start.getTime().getTime();
+	}
+
+
+	public int partition(int first, int last){
+		int pivot = lines_lengths[last];
+		int i = (first -1);
+		for(int j = first; j <= last -1; j++){
+			if(lines_lengths[j]<pivot){
+				i++;
+				swap(i,j);
+			}
+		}
+		swap(i+1, last);
+		return(i + 1);
+	}
+	public void q_sort(int first, int last){
+			if(first < last){
+				int pi = partition(first, last);
+				quickSort();
+			}
 	}
 	public void quickSort(){
 		Calendar start = Calendar.getInstance();
 
+		/*
+		int pivot = lines_lengths[last];
+		int i = (first - 1);
+
+		for(int j = first; j <= last -1; j++){
+			if(lines_lengths[j] < pivot){
+				i++;
+				swap(i,j);
+			}
+		}
+		*/
+
+		paintComponent(this.getGraphics());
+		Calendar end = Calendar.getInstance();
+		SortGUI.quickTime = end.getTime().getTime() - start.getTime().getTime();
 	}
 	//////////////////////////////////////////////////////////////////////	
 		
