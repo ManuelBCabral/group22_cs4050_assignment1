@@ -121,21 +121,50 @@ public class SortShow extends JPanel {
 			}
 			return indexOfMin;
 		}
+
+		public void Insertionsort()
+		{
+			//getting the date and time when the selection sort starts
+			Calendar start = Calendar.getInstance();
+			//Using the Insertion sort to lines_lengths sort the array
+			// for loop to go through the array of lines
+			for(int x = 1; x < total_number_of_lines - 1; x++)
+			{
+				int temp = lines_lengths[x];
+				// storing current variable in a temp array
+				int j = x-1;
+				// making j point to one before the current array and while loop that makes sure our we're in a valid array spot and if this array is bigger than the previous than swap them.
+				while(j>= 0 && lines_lengths[j]>temp)
+				{
+					lines_lengths[j+1] = lines_lengths[j];
+					//swap and iterate
+					j = j-1;
+				}
+				lines_lengths[j+1] = temp;
+			}
+			paintComponent(this.getGraphics());
+			Calendar end = Calendar.getInstance();
+			//getting the time it took for the iterative merge sort to execute
+			//subtracting the end time with the start time
+	        	SortGUI.InsertionTime = end.getTime().getTime() - start.getTime().getTime();
+		}
 		
 	///////////////////////////////////////////////////////////////////////////////////
 		
-		//recursive merge sort method
 		public void R_MergeSort(){
 			//getting the date and time when the recursive merge sort starts
 			Calendar start = Calendar.getInstance();
 			//assigning the size for the tempArray below
 
 			//You need to complete this part.
+			R_MergeSort(0, total_number_of_lines-1);
 
+
+			paintComponent(this.getGraphics());
 			Calendar end = Calendar.getInstance();
 			//getting the time it took for the iterative merge sort to execute
 			//subtracting the end time with the start time
-	        SortGUI.rmergeTime = end.getTime().getTime() - start.getTime().getTime();
+	        	SortGUI.rmergeTime = end.getTime().getTime() - start.getTime().getTime();
 			
 		}
 		
@@ -144,6 +173,13 @@ public class SortShow extends JPanel {
 			if(first < last){
 
 				//You need to complete this part.
+				// merge sort algorithim
+				int mid = ((first+(last))/2);
+				R_MergeSort(first, mid);
+				R_MergeSort(mid+1,last);
+				R_Merge(first, mid, last);
+				
+
 
 				//Causing a delay for 10ms
 				delay(10); 
@@ -155,7 +191,52 @@ public class SortShow extends JPanel {
 		public void R_Merge(int first, int mid, int last){
 
 			//You need to complete this part.
-				
+			int s1 = mid - first + 1;
+			int s2 = last - mid;
+			// making of the left and right array
+			int[] Farr = new int[s1];
+			int[] Larr = new int[s2];
+
+			// fill up the arrays
+			for(int x = 0; x<s1; x++)
+			{
+				Farr[x] = lines_lengths[first+x];
+			}
+			for(int y=0; y<s2; y++)
+			{
+				Larr[y] = lines_lengths[mid+1+y];
+			}
+
+			int x=0, y=0;
+			// reset variables for future use
+			int k =first;
+			// while loop that looks at the different cases of merging and swaps depending on which case
+			while(x<s1 && y<s2)
+			{
+				if(Farr[x] <= Larr[y])
+				{
+					lines_lengths[k] = Farr[x];
+					x++;
+				}
+				else
+				{
+					lines_lengths[k] = Larr[y];
+					y++;
+				}
+				k++;
+			}
+			while (x<s1)
+			{
+				lines_lengths[k] = Farr[x];
+				x++;
+				k++;
+			}
+			while(y<s2)
+			{
+				lines_lengths[k] = Larr[y];
+				y++;
+				k++;
+			}
 		}
 		
 		//
