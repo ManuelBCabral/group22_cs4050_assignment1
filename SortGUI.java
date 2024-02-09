@@ -239,10 +239,33 @@ public class SortGUI {
 					//iterative merge sort has finished/been clicked
 					Iterative_Merge_Done = true;
 					//setting all booleans false except for reset
-					Set_Available_Chooses(false,false, false, false, false, false, false);
+					Set_Available_Chooses(false,false, false, false, false, false, true);
 				}
 			});
-
+			qmerge.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					//Sorting the array in the iterative merge sort method
+					sortArea.quickSort();
+					//The amount of time taken for iterative merge sort took
+					quick_time_taken.setText((quickTime / 1000) + " Seconds");
+					//iterative merge sort has finished/been clicked
+					quick_Sort_Done = true;
+					//setting all booleans false except for reset
+					Set_Available_Chooses(false,false, false, false, false, false, true);
+				}
+			});
+			smerge.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					//Sorting the array in the iterative merge sort method
+					sortArea.shellSort();
+					//The amount of time taken for iterative merge sort took
+					shell_time_taken.setText((shellTime / 1000) + " Seconds");
+					//iterative merge sort has finished/been clicked
+					shell_Sort_Done = true;
+					//setting all booleans false except for reset
+					Set_Available_Chooses(false,false, false, false, false, false, true);
+				}
+			});
 			//Creating an action listener for reset button
 			reset.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {

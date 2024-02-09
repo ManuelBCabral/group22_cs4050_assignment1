@@ -268,12 +268,25 @@ public class SortShow extends JPanel {
 		for (index = first; index <= last; index++)
 			lines_lengths[index] = tempArray[index];
 	}
+	//////////////////////////////////////////////////////////////////////
+	public void shellSort(){ //takes an array and n
+		Calendar start = Calendar.getInstance();
+		/*
+		for(int gap = n/2; while the gap is greater than 0, gap /= 2)
+			for(i = gap; while i is less than n. i++)
+				create a temp that copies the array
 
-	public void shellSort(int first, int end){
+				int j = 0;
+				for(j = i; j >= gap && array[j- gap] > temp; j -= gap)
+					array[j] = arr[j-gap];
+
+					array[j] = temp;
+		return 0;
+		 */
 
 	}
-	public void quickSort(int first, int end){
-
+	public void quickSort(){
+		Calendar start = Calendar.getInstance();
 
 	}
 	//////////////////////////////////////////////////////////////////////	
