@@ -258,7 +258,7 @@ public class SortGUI {
 					//iterative merge sort has finished/been clicked
 					quick_Sort_Done = true;
 					//setting all booleans false except for reset
-					Set_Available_Chooses(false,false, false, false, false, false, true);
+					Set_Available_Chooses(false,false, false, false, false, false, false, true);
 				}
 			});
 			smerge.addActionListener(new ActionListener() {
@@ -270,7 +270,7 @@ public class SortGUI {
 					//iterative merge sort has finished/been clicked
 					shell_Sort_Done = true;
 					//setting all booleans false except for reset
-					Set_Available_Chooses(false,false, false, false, false, false, true);
+					Set_Available_Chooses(false,false, false, false, false, false, false, true);
 				}
 			});
 
