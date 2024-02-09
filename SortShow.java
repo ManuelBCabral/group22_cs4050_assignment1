@@ -394,12 +394,6 @@ public class SortShow extends JPanel {
 		swap(i+1, last);
 		return(i + 1);
 	}
-	public void q_sort(int first, int last){
-			if(first < last){
-				int pi = partition(first, last);
-				quickSort();
-			}
-	}
 	public void quickSort(){
 		Calendar start = Calendar.getInstance();
 
@@ -414,10 +408,18 @@ public class SortShow extends JPanel {
 			}
 		}
 		*/
+		quickSort(0,total_number_of_lines-1);
 
 		paintComponent(this.getGraphics());
 		Calendar end = Calendar.getInstance();
 		SortGUI.quickTime = end.getTime().getTime() - start.getTime().getTime();
+	}
+	public void quickSort(int first, int last){
+		if(first < last){
+			int pi = partition(first, last);
+			quickSort(first, pi-1);
+			quickSort(pi+1, last);
+		}
 	}
 	//////////////////////////////////////////////////////////////////////	
 		

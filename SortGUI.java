@@ -177,7 +177,7 @@ public class SortGUI {
 
 			//A Panel to hold the buttons_area_Panel and set the GridLayout
 			//This buttons_area_Panel will hold scrambleButton, radio_button_selection and the time_Panel
-			JPanel buttons_area_Panel = new JPanel(new GridLayout(6, 1, 5, 5));
+			JPanel buttons_area_Panel = new JPanel(new GridLayout(8, 1, 5, 5));
 			//adding scramble_button to the buttons_area_Panel
 			buttons_area_Panel.add(scramble_button);
 			//adding radio_button_selection_Panel to the buttons_area_Panel
